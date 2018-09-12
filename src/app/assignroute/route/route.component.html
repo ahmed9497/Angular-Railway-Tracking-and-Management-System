@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <div class="main-panel">			
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+        <div class="card-header" data-background-color="purple">
+          <h4 class="title">Assign Route</h4>
+        </div>
+        <div class="card-content">
+          <form  (ngSubmit)="onSubmit()">
+            <input type="hidden" name="id"  [(ngModel)]="route.id" class="form-control">
+            <div class="row">
+            <div class="col-md-8">
+            <div class="form-group label-floating" >
+              <label class="control-label" style="float: left; margin-top:30px;"> Train Name </label>
+              <select  [(ngModel)]="route.train_id" name="form-control" style=" float: right; ">
+                <ng-container *ngFor="let trainn of train" >      
+                             <option *ngIf="trainn.status != 'active'" [(ngValue)]="trainn.id"  >{{trainn.name}}</option>
+                  </ng-container>
+                
+              </select>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">            
+              <div class="form-group label-floating" >
+                <label  class="control-label" style="float: left; margin-top:30px;">Driver Name </label>
+              
+                <select  [(ngModel)]="route.driver_id" name="form-control" style=" float: right; ">
+                  <ng-container *ngFor="let driverss of driver">
+                  <option  *ngIf="driverss.status != 'active'" [(ngValue)]="driverss.id">{{driverss.name}}</option>
+                </ng-container>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+                <div class="form-group label-floating" >
+                    <label class="control-label" style="float: left; margin-top:30px;">Kitchen Runner Name </label>
+                    <select  [(ngModel)]=route.kitchenrunner_id name="form-control" style=" float: right; ">
+                     <ng-container *ngFor="let kitchenrunnerr of kitchenrunner">
+                      <option  *ngIf="kitchenrunnerr.status != 'active'" [(ngValue)]="kitchenrunnerr.id">{{kitchenrunnerr.name}}</option>
+                    </ng-container>
+                    </select>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+                <div class="form-group label-floating" >
+                    <label class="control-label" style="float: left; margin-top:30px;">Ticket Checker Name </label>
+                    <select  [(ngModel)]="route.ticketchecker_id" name="form-control" style=" float: right; ">
+                      <ng-container  *ngFor="let  ticketcheckerr of ticketchecker">
+                      <option *ngIf="ticketcheckerr.status != 'active'" [(ngValue)]="ticketcheckerr.id">{{ticketcheckerr.name}}</option>
+                    </ng-container>
+                    </select>
+                  </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-8">
+                <div class="form-group label-floating" >
+                <label class="control-label" style="float: left; margin-top:30px;">Train Route Name </label>
+                <select     [(ngModel)]="route.trainroute_id" name="form-control" style=" float: right; ">
+                 <ng-container *ngFor="let cities of trainroute">
+                  <option *ngIf="cities.status != 'active'" [(value)]="cities.id">{{cities.name}}</option>
+                </ng-container>
+                </select>
+              </div>
+            </div>
+        
+              <div class="col-md-6">
+     
+
+              </div>
+          
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-static">
+                    <label class="control-label">Datepicker</label>
+                    <input type="date"  name="form-control" [(ngModel)]="route.date" class="datepicker form-control" value="03/12/2016" />
+                   
+                  </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary pull-right" >Submit</button>
+          <div class="clearfix" ></div> 
+          </form>
+        </div>
+      </div>
+      </div>
+       </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    

@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="main-panel">			
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+        <div class="card-header" data-background-color="purple">
+          <h4 class="title">Driver</h4>
+          <p class="category">Profile</p>
+        </div>
+        <div class="card-content">
+          <form  (ngSubmit)="onSubmit()">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="driver.id" >
+            <div class="row">
+            <div class="col-md-5">
+            <div class="form-group label-floating">
+              <label class="control-label">Name</label>
+              <input type="text" name="name" [(ngModel)]="driver.name" class="form-control">
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="form-group label-floating">
+              <label class="control-label">Cnic</label>
+              <input type="text" name="Cnic" [(ngModel)]="driver.Cnic" class="form-control">         
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Contact_No</label>
+              <input type="text" name="ContactNo" [(ngModel)]="driver.ContactNo" class="form-control">
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            <div class="form-group label-floating">
+              <label class="control-label">Experience</label>
+              <input type="text" name="Experience" [(ngModel)]="driver.Experience" class="form-control">
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group label-floating">
+              <label class="control-label">License No</label>          
+              <input type="text" name="LicenseNo" [(ngModel)]="driver.LicenseNo" class="form-control">
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+            <div class="form-group label-floating">
+              <label class="control-label">Education</label>
+              <input type="text" name="Education" [(ngModel)]="driver.Education" class="form-control">
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">License Expiry Date</label>
+              <input type="text" name="LicenseExpiryDate" [(ngModel)]="driver.LicenseExpiryDate" class="form-control">
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Address</label>
+              <input type="text" name="Address" [(ngModel)]="driver.Address" class="form-control">
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Email</label>
+              <input type="text" name="Email" [(ngModel)]="driver.Email" class="form-control">
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group label-floating">
+                <label class="control-label">Password</label>
+                <input type="text" name="Password" [(ngModel)]="driver.Password" class="form-control">
+              </div>
+            </div>
+          </div>
+         
+          <button type="submit" class="btn btn-primary pull-right" >Submit</button>
+          <div class="clearfix" ></div> 
+          </form>
+        </div>
+      </div>
+      </div>
+          <div class="col-md-4">
+          <div class="card card-profile">
+            <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+            </div>
+            <div class="content">
+            <h6 class="category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-content">
+              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+            </p>
+            <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    

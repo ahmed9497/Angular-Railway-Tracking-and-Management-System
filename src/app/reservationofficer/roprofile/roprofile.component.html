@@ -1,0 +1,36 @@
+  <div class="content"  >
+   <div class="container-fluid">
+     <div class="row" *ngFor='let pro of profile |async'>
+       <div class="col-md-3 offset-md-3"></div>
+       <div class="col-md-6 offset-md-3">
+         <div class="card card-profile">
+           <div class="card-avatar">
+             <a href="#pablo">
+               <img class="img" src="../assets/img/faces/marc.jpg" />
+             </a>
+           </div>
+           <div class="content">
+             <h6 class="category text-gray"></h6>
+             <h4 class="card-title">{{pro.name}}</h4>
+             <p class="card-content">
+               {{pro.Address}}
+             </p>
+             <p class="card-content">
+               {{pro.Cnic}}
+             </p>
+             <p class="card-content">
+               {{pro.ContactNo}}
+             </p>
+             <p class="card-content">
+               {{pro.Experience}}
+             </p>
+          
+ 
+             <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   </div> 
+ 

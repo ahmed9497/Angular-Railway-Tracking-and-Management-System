@@ -1,0 +1,75 @@
+
+  <div class="wrapper">
+
+        <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+        <div class="logo">
+            <a  class="simple-text">
+               LOGO
+               
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="active">
+                    <a routerLink="maindash">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="showList">
+                        <i class="material-icons">content_paste</i>
+                        <p>Train List</p>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="driverlist">
+                        <i class="material-icons">location_on</i>
+                        <p>Manage Driver</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a routerLink="trainroutelist">
+                        <i class="material-icons">location_on</i>
+                        <p>train route</p>
+                    </a>
+                </li>
+
+                <li>
+                        <a routerLink="routeslist">
+                            <i class="material-icons">location_on</i>
+                            <p>Assign Route list</p>
+                        </a>
+                </li>
+                <li>
+                        <a routerLink="kitchenrunnerslist">
+                            <i class="material-icons text-gray">KR</i>
+                            <p>Manage Kitchen Runner</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="ticketcheckerlist">
+                            <i class="material-icons text-gray">TC</i>
+                            <p>Manage Ticket Checker</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="reservationofficerlist">
+                            <i class="material-icons text-gray">RO</i>
+                            <p>Manage Reservation Officer</p>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+        <router-outlet></router-outlet>
+    </div>

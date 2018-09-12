@@ -1,0 +1,9 @@
+.bg-overlay  {
+    height: 550px;
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),url('https://unsplash.imgix.net/photo-1416339442236-8ceb164046f8?q=75&fm=jpg&s=8eb83df8a744544977722717b1ea4d09') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+ 
+}

@@ -1,0 +1,63 @@
+					<div class="container-fluid">
+					<div class="main-panel">			
+					<div class="content">
+						<div class="container-fluid">
+						  <div class="row">
+							<div class="col-md-8">
+							  <div class="card">
+								<div class="card-header" data-background-color="purple">
+								  <h4 class="title">Train</h4>
+								  <p class="category">Profile</p>
+								</div>
+								<div class="card-content">
+								  <form  (ngSubmit)="onSubmit()">
+										<input type="hidden" name="id" #id="ngModel" [(ngModel)]="train.id" >
+										<div class="row">
+									  <div class="col-md-5">
+										<div class="form-group label-floating">
+											<label class="control-label">Name</label>
+										  <input type="text" name="name" #name="ngModel" [(ngModel)]="train.name" class="form-control" required>
+										</div>
+									  </div>
+									  <div class="col-md-3">
+										<div class="form-group label-floating">
+										  <label class="control-label">Train No</label>
+										  <input type="text" name="Train_No" #Train_No="ngModel" [(ngModel)]="train.Train_No" class="form-control" required>										</div>
+									  </div>
+									  <div class="col-md-4">
+										<div class="form-group label-floating">
+										  <label class="control-label">Engine No</label>
+										  <input type="text" name="Engine_No" #Engine_No="ngModel" [(ngModel)]="train.Engine_No" class="form-control">
+										</div>
+									  </div>
+									</div>
+									<div class="row">
+									  <div class="col-md-6">
+										<div class="form-group label-floating">
+										  <label class="control-label">Bogies</label>
+										  <input type="text"  name="Bogies" #Bogies="ngModel" [(ngModel)]="train.Bogies" class="form-control">
+										</div>
+									  </div>
+									  <div class="col-md-6">
+										<div class="form-group label-floating">
+										  <label class="control-label">Seats</label>
+										  <input type="text"  name="Seats" #Seats="ngModel" [(ngModel)]="train.Seats"  class="form-control">
+										</div>
+									  </div>
+									</div>
+									
+								
+									<button type="submit" class="btn btn-primary pull-right" >Submit</button>
+									<div class="clearfix" ></div> 
+								  </form>
+								</div>
+							</div>
+						  </div>
+								  
+								</div>
+							  </div>
+							</div>
+							</div>
+							</div>
+						
+ 

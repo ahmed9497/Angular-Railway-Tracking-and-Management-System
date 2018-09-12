@@ -1,0 +1,91 @@
+<!-- 
+    <div  *ngFor ="let b of array">
+            <input type="button"  value={{b}} (click)="COLOR(b.value,$event)" >
+    </div>
+<hr> -->
+<div class="conatiner col-lg-8 col-lg-push-4"  >
+        <div class="row">
+<div div style=" width: 50%; transform: translate(1,-1%); ">
+<div class="grid-container">
+        <div  id="grid" *ngFor ="let b of trainTotalSeats" class="grid-item">
+             
+                         <div *ngIf="b=='reserve'; else elseBlock">
+                                <input type="button"  value={{b}} disabled style="background-color: red;">
+
+                        </div>
+                        <ng-template #elseBlock >
+                                <input type="button"  value={{b}} (click)="saveInTempArray(b)">                               
+                        </ng-template>
+                   <!-- <input  type="button"  value={{b}} (click)="COLOR($event)">                                -->
+           
+                
+       </div>
+
+      </div>
+</div>
+</div>
+      <div class="row" >
+                <div style=" width: 50%; transform: translate(1,-1%); "> 
+                        <div class="card card-profile">
+                                <div class="card-header" data-background-color="purple">
+                                        <h4 class="title">Seats Booking</h4>
+                                </div>
+                          <div class="content">
+        
+                            <h4 class="card-title">Seats</h4>
+                           
+                            <a  (click)="onClicked()" class="btn btn-primary btn-round">Follow</a>
+                             <br>
+                             <br>   
+                            <a routerLink='reservationform'  (click)="confirmClick()" class="btn btn-primary btn-round">Save</a>
+        
+                        </div>
+        
+                          <div class="row">
+                                <div class="col-md-12">
+                                <div class="form-group label-floating" style="display: inline">
+                                  <label class="align middle" style="float: left;"> Train Name </label>
+                                  <select [(ngModel)]="train_id"  name="form-control" >
+                                    <option *ngFor="let trainn of trains" value={{trainn.id}} >{{trainn.name}}</option>
+                                  </select>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group label-static" style="display: inline">
+                                                <label style="float: left;">Datepicker</label>
+                                                <input type="date" style="float: right;"  name="form-control" [(ngModel)]="date"  />
+                                               
+                                              </div>
+                                        </div>
+                                      </div>
+                        </div>
+                </div>
+        </div>
+        
+        </div>
+       
+<!-- <div>
+ <button id="bo" *ngFor ="let b of array" (click)="COLOR()"><i class="material-icons md-48">
+        airline_seat_recline_extra
+ </i>
+</button>
+ </div> -->
+ <!-- <button >click me</button> -->
+   <!-- 
+    <div>
+            <button>
+                    <i class="material-icons md-48">
+                            airline_seat_recline_extra
+                     </i>
+                    
+            </butto
+            </div>
+    <p>thisis paragraph</p>
+    <i class="material-icons md-48">
+        airline_seat_recline_extra
+        </i> --> 
+
+      
+                    
