@@ -150,9 +150,10 @@
                 <agm-marker 
                     *ngFor="let m of markers; let i = index"
                     (markerClick)="clickedMarker(m.name, m.id)"
-                    [latitude]="m.Latitude"
-                    [longitude]="m.Longitude"
+                    [latitude]="m.lat"
+                    [longitude]="m.lng"
                     [label]="m.name"
+                    [iconUrl]="icon"
                 >
                     
                   <agm-info-window>
@@ -176,24 +177,24 @@
                 </agm-marker>
                 
               </agm-map>
-    
-              <div class="container">
-                  <input type="text" #station name="newstation" value="lahore" >
-                  <button class="btn btn-round" (click)="addStation(station.value)">Add</button>
-              </div>
-              <div class="row">
-                <div class="col-md-8">            
-                  <div class="form-group label-floating" >
-                    <label  class="control-label" style="float: left; margin-top:30px;">Select Station to Add </label>
-                    <select  name="form-control" [(ngModel)]="name" style=" float: right; ">
-                      <option *ngFor="let l of cities"  [ngValue]="l.id" name="newstation">{{l.station_name}}</option>
-                    </select>
-                    <button class="btn btn-round" style=" float: right; " (click)="addStation(station.value)">Add</button>
-              
-                  </div>
+              <!-- <div class="container">
+                <input type="text" #station name="newstation" value="lahore" >
+                <button class="btn btn-round" (click)="addStation(station.value)">Add</button>
+            </div> -->
+            <div class="container">
+            <div class="row">
+              <div class="col-md-8">            
+                <div class="form-group label-floating" >
+                  <label  class="control-label" style="float: left; margin-top:30px;font-size:100%;color: black;">Select Station to Add </label>
+                  <select  name="form-control" [(ngModel)]="name" style=" float: right; ">
+                    <option *ngFor="let l of cities"  [ngValue]="l.id" name="newstation">{{l.station_name}}</option>
+                  </select>
+                  <button class="btn btn-round" style=" float: right; " (click)="addStation()">Addasd</button>
+            
                 </div>
               </div>
-              <ul>
+            </div></div>
+              <!-- <ul>
                 <li *ngFor="let l of cities ">
                     {{l.city_name}}
                     {{l.lat}}
@@ -202,7 +203,7 @@
                   {{l.id}}
                 </li>
                 
-            </ul>
+            </ul> -->
               
     <!--           
               <div class="dropdown">

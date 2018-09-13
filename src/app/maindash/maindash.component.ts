@@ -18,10 +18,12 @@ export class MaindashComponent implements OnInit {
   public origin: {}
   public destination: {}
   icon: string = "assets/images/icon.png";
-  routemarker :any[]; markers :Train[];
+  routemarker :any[]; 
+  markers :any;
   stationId:any;
   //city_name: any[];
-  a:any[];
+  a:any=[];
+  b:any[] = [];
   public mstation:any[];
   cities:any;
   name:'';
@@ -125,64 +127,75 @@ export class MaindashComponent implements OnInit {
   clickedMarker(label: string, id: number) {
     console.log(`clicked the marker: ${label}--${id}`);
     this.stationId=id;
+    console.log("st   "+this.stationId);
     this.service.GetDoc(this.stationId);
   }
 
   city_name : any = [];
- 
+  
   GetRoutemarker() {
-    // this.service.getTrainsMarkers().forEach(element => {
-    //   console.log(element);
-    // });
-    // this.routemarker=this.service.getdataofroute();
-    // console.log("route marker array ="+this.routemarker);
     
-    // this.city_name = this.service.getdataofcity_name();
-    // this.city_name.forEach(value =>  {
-    //   console.log("this is value of city_name"+value);
-    // });
-    // this.routemarker = this.service.getdataofroute();
     
-      // console.log(this.city_name[1]);
-    //   // this.service.getTrainData().subscribe(items => {
-    //   //   this.markers = items;
-    //   //   console.log(this.markers);
+
+//
+  //  setTimeout(() => {
+      this.service.getTrainMarkers().subscribe(i=>{});
       
-    // });
-    this.service.getTrainMarkers().subscribe(i=>{
-      
-      console.log(i);
-    });
-     let a=[];
-    // console.log(a=this.service.getTrainIds());
-    a=this.service.getTrainIds();
-    console.log(a);
+        //console.log(i);
+    //  });
+
+   
+     
+this.markers= this.service.getidss();
+console.log(this.markers);
+
+    
+
+   //  },4000);
+
+
+this.service.empty();
+    
+
+    
   }
 
  arr:any = [];
   addStation(){
     console.log("clicked" +this.name);
+    this.a.push(this.name);
+    console.log(this.a);
     // this.service.UpdateStations();
     //this.service.GetDoc();
  
    // this.arr = this.service.get_cities_station();
     this.service.Gotid().subscribe(i =>this.mstation = i );
+
+
     console.log("ahmed"+this.mstation);
     this.arr = this.service.get_cities_station();
-    // this.mstation.forEach(value=>{
-    //   console.log(value);
+    console.log(this.arr);
+    this.arr.forEach(value=>{
+      console.log(value);
       
-    // });
+    });
     setTimeout(() => {
     this.arr.forEach(element => {
       console.log(element);
-      ///this.a.push(element);
+      if (element != null) {
+      this.a.push(element);
+      }
     });
-    
+    console.log("this is a="+this.a);
+    this.service.updateStations(this.a);
+    this.a.length=0;
+    this.service.empty();
+
   },2000);
-  this.a=this.arr;
-  this.a.push(this.name);
-  this.service.updateStations(this.a);
+  //this.a=this.arr;
+ // this.arr.push(this.name);
+  console.log("this is a arrrrt "+this.arr);
+ //
  
     // this.arr.forEach(value=>{
     //   console.log(value);
@@ -200,9 +213,9 @@ GetCities(){
   let a;
   a=this.service.getcityData().
   subscribe(i=>{
-    console.log("cities "+i);
+   // console.log("cities "+i);
     this.cities=i;
-    console.log("cities "+this.cities);
+    //console.log("cities "+this.cities);
   });
 }
 

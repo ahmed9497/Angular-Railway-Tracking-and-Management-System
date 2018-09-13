@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import * as firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { TRY } from '../assignroute/shared/try.model';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, } from 'angularfire2/database';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 
@@ -975,12 +975,13 @@ insertpassenger(passenger : Passenger,totalreservedseats : string[] ){
 
 
 
-updateStations(array){
-  //let array=["amjac","adas","asdads","rrrty"]
+updateStations(array?){
+  //let arra=["amjac","adas","asdads","rrrty"]
  console.log(array);
   this.fs.collection('trainroutes').doc(this.tr_id)
   
   .update({ stations: array});
+  //this.empty();
 }
 
 
@@ -989,7 +990,7 @@ GetDoc(value?){
   // console.log("get doc is called by add astatitnk");
   //  this.trainlistCollection.doc('2c7Dz3ETJwBJg3oQwrvh').
   //  valueChanges().subscribe(i=>{console.log(i)});
-  console.log("Getid id "+value);
+  console.log("In GetDoc func "+value);
 
   
   this.station =  this.fs.collection('route', ref =>
@@ -999,12 +1000,12 @@ GetDoc(value?){
     
      this.tr_id=a.payload.doc.data().trainroute_id;
       //this.Gotid(id);
-      console.log("Trainroutd id in getDoc"+this.tr_id); 
+      console.log("Trainroutd id in getDoc "+this.tr_id); 
   }); 
   });
 
   this.station.subscribe(i=>{
-    console.log(i); 
+    //console.log(i); 
   });    
    
 
@@ -1028,8 +1029,8 @@ GetDoc(value?){
 
     s:Observable<any>;
     Gotid():any{
-      //this.cities_station=[];
-      console.log("Trainroutd id in Gotid"+this.tr_id); 
+      this.cities_station.length=0;
+      console.log("Trainroute id in Gotid"+this.tr_id); 
       // this.trainroutelistCollection.doc(value).
       //   valueChanges().subscribe(i=>{console.log(i)});
       
@@ -1039,19 +1040,19 @@ GetDoc(value?){
           //data.lat=a.payload.doc.data().long;
         const data = a.payload.data();
           data.id=a.payload.id;
-        
+
           console.log("stations are 0 index  "+data.stations[0]);
           data.stations.forEach(element => {
             console.log(element);
             this.cities_station.push(element);
           });
-          
+          data.stations=[];
           console.log("cities arra "+this.cities_station);
           
           return data.station;
         }); 
         
-        console.log(this.station);
+       // console.log(this.station);
         // this.station.forEach(value=>{
         //   console.log("Data from firestore"+value);
         // });
@@ -1064,24 +1065,26 @@ GetDoc(value?){
 }
 
 
-t_id=[];
+t_id:any = [];
+
 getTrainMarkers(){
+  
   var date =new Date();
     let year=date.getFullYear();
     let month=("0" + (date.getMonth() + 1)).slice(-2);
     let day=("0" + date.getDate()).slice(-2);
-    console.log("DUTY Year "+year+" Month "+month+" DAy "+day);
+   // console.log("DUTY Year "+year+" Month "+month+" DAy "+day);
     
    
      return this.fs.collection('route', ref =>
       ref.where('date', '==', `${year}-${month}-${day}`)).snapshotChanges().map(changes => {
         return changes.map(a=>{
-         console.log(a);
+      //   console.log(a);
          
-          this.t_id.push(a.payload.doc.data().train_id);
-          
+         
+          this.getTrainIds(a.payload.doc.data().train_id);
 
-          console.log("t_id arrary "+this.t_id);
+          console.log("t_id arrary "+a.payload.doc.data().train_id);
          
           return a.payload.doc.data();
 
@@ -1093,20 +1096,32 @@ getTrainMarkers(){
  
 }
 
-getTrainIds():any{
- 
-  console.log(this.t_id);
+getTrainIds(value?):any{
+console.log("value is= "+value);
+this.trainlistCollection.doc(value).snapshotChanges().subscribe
+    (a => {
+      console.log("sfds"+a.payload.data());
+      this.t_id.push({
+              lat:a.payload.data().Latitude,
+              lng:a.payload.data().Longitude,
+              id:a.payload.id,
+              name:a.payload.data().name
+            })
+      
+          });
+  
+    console.log("sfds"+this.t_id);
+    return this.t_id;
+}
+
+getidss(){
   return this.t_id;
 }
 
-
-
-
-
-
-
-
-
+empty(){
+  console.log("empty is called");
+  this.cities_station.length =0;
+}
 
 
 
